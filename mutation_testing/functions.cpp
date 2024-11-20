@@ -1,0 +1,6 @@
+bool valid_age(int age) {
+  if (age >= 21) {
+    return true;
+  }
+  return false;
+}
