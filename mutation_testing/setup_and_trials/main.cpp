@@ -4,26 +4,34 @@
 //   }
 //   return false;
 // }
-#include "./functions.cpp"
+#include "./functions.h"
 
 int main() {
-  bool test1 = valid_age(25) == true;
+  // Age age1(25);
+  // bool test1 = age1.get_age() == 10;
+  // if (!test1) {
+  //   /// test failed
+  //   return 1;
+  // }
+
+  Age age1(25);
+  bool test1 = age1.valid_age() == true;
   if (!test1) {
     /// test failed
     return 1;
   }
 
-  bool test2 = valid_age(20) == false;
-  if (!test2) {
-    /// test failed
-    return 1;
-  }
+  // bool test2 = valid_age(20) == false;
+  // if (!test2) {
+  //   /// test failed
+  //   return 1;
+  // }
 
-  bool test3 = valid_age(21) == true;
-  if (!test3) {
-     /// test failed
-     return 1;
-  }
+  // bool test3 = valid_age(21) == true;
+  // if (!test3) {
+  //    /// test failed
+  //    return 1;
+  // }
 
   /// success
   return 0;

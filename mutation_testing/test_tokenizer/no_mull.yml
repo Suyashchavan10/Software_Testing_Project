@@ -1,0 +1,12 @@
+filters:
+  include:
+    source_files: 
+      - test_tokenizer.cpp
+      - ../../src/tokenizer/tokenizer.cpp
+mutation_operators:
+  - cxx_arithmetic_operator_add
+  - cxx_arithmetic_operator_sub
+  - cxx_logical_operator_and
+  - cxx_logical_operator_or
+dynamic_library_search_paths:
+  - /usr/lib/x86_64-linux-gnu

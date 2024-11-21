@@ -265,6 +265,9 @@ void printAST(const Node& node, int level) {
         case NodeType::BLOCK:
             cout << "BLOCK";
             break;
+        case NodeType::READ:
+            cout << "READ";
+            break;
         // Add cases for other node types as needed
     }
 
