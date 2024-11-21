@@ -8,7 +8,7 @@ CALCULATOR_SRC="calculator.cpp"
 TEST_SRC="calculator_test.cpp"
 OUTPUT_EXEC="calculator_test"
 
-# Define the path to GoogleTest (change it to where GoogleTest is installed on your system)
+# Define the path to GoogleTest 
 GTEST_INCLUDE_PATH="/usr/include/gtest"
 GTEST_LIB_PATH="/usr/lib/x86_64-linux-gnu"
 
@@ -20,4 +20,3 @@ g++ -std=c++11 -isystem $GTEST_INCLUDE_PATH -pthread $CALCULATOR_SRC $TEST_SRC -
 echo "Running tests..."
 ./$OUTPUT_EXEC
 
-# End of script

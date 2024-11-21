@@ -1,0 +1,15 @@
+Declare x As Integer
+Declare arr As Array Of Integer[5]
+Assign x = 5
+Print "Hello"
+If x > 0 Then
+    Assign x = x + 1
+Else
+    Assign x = 0
+End If
+For i=0 To 5 Do
+    Assign arr[i] = i * 2
+End For
+While x < 10 Do
+    Assign x = x + 1
+End While
