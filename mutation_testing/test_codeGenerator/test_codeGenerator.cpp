@@ -208,6 +208,112 @@ int main() {
         }
     }
 
+    // Test Case 6: Declaration with 2D array and matrix
+    {
+        string input = R"(
+            Declare matrix As Array Of Integer[3][3]
+        )";
+        Tokenizer tokenizer(input);
+        vector<Token> tokens = tokenizer.tokenize();
+        Parser parser(tokens);
+        Node ast = parser.parse();
+
+        CodeGenerator generator;
+        string generatedCode = generator.generateCode(ast);
+
+        string expectedCode = R"(
+            #include <bits/stdc++.h>
+            using namespace std;
+
+            int main() {
+
+                int matrix[3][3];
+
+                return 0;
+            }
+        )";
+
+        if (!checkGeneratedCode(generatedCode, expectedCode)) {
+            cerr << "Test Case Failed: 2D Array Declaration" << endl;
+            return 1;
+        }
+    }
+
+    // Test Case 7: For loop boundary conditions
+    {
+        string input = R"(
+            For i = 0 To 5 Do
+                Print i
+            End For
+        )";
+
+        Tokenizer tokenizer(input);
+        vector<Token> tokens = tokenizer.tokenize();
+        Parser parser(tokens);
+        Node ast = parser.parse();
+
+        CodeGenerator generator;
+        string generatedCode = generator.generateCode(ast);
+
+        string expectedCode = R"(
+            #include <bits/stdc++.h>
+            using namespace std;
+
+            int main() {
+
+                for (int i = 0 ; i <= 5 ; i++) {
+                    cout << i << endl;
+                }
+
+
+                return 0;
+            }
+        )";
+
+        if (!checkGeneratedCode(generatedCode, expectedCode)) {
+            cerr << "Test Case Failed: For Loop Boundary Condition" << endl;
+            return 1;
+        }
+    }
+
+    // Test Case 8: Assignment within a conditional
+    {
+        string input = R"(
+            If x == 0 Then
+                Assign y = 5
+            End If
+        )";
+
+        Tokenizer tokenizer(input);
+        vector<Token> tokens = tokenizer.tokenize();
+        Parser parser(tokens);
+        Node ast = parser.parse();
+
+        CodeGenerator generator;
+        string generatedCode = generator.generateCode(ast);
+
+        string expectedCode = R"(
+            #include <bits/stdc++.h>
+            using namespace std;
+
+            int main() {
+
+                if ( x == 0 ) {
+                    y = 5 ;
+                }
+
+
+                return 0;
+            }
+        )";
+
+        if (!checkGeneratedCode(generatedCode, expectedCode)) {
+            cerr << "Test Case Failed: Equality in If Statement" << endl;
+            return 1;
+        }
+    }
+
+
     // All tests passed
     cout << "All tests passed successfully!" << endl;
     return 0;
